@@ -1,0 +1,35 @@
+PasteIt is a simple command line app for the Knoxious-Open-Pastebin[1]
+with some neat nittle features to fit my needs, mostly:
+
+ * Read/Write clipboard support
+ * Configuration file
+ * Input from STDIN or filename arguments
+
+I've tried keeping dependencies to a minimum. What this script needs
+is as follows:
+
+ * LWP
+ * LWP::Protocol::https
+ * Net::SSL
+
+HTTP::Tiny's API is WAY more sane, but LWP is installed everywhere :(
+
+For fiddling with the clipboard you need a clipboard manager
+
+ * Linux: xclip
+ * Mac: pbcopy/pbpaste
+
+Note: I don't have a mac. If it doesn't work just let me know :-)
+
+There is support for a config file. Just create a $HOME/.pasteit.conf
+with something like this:
+
+       %options = (
+           author => 'Caio Romao',
+           paste => 'https://pzt.me/api',
+           to_clipboard => 1,
+           lifespan => 3,
+           raw => 1,
+       );
+
+[1]: https://github.com/xanmanning/Knoxious-Open-Pastebin
